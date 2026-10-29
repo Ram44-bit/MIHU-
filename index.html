@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>NETRA AI — See the world differently</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.17.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="NETRA AI home">
+        <span class="brand-mark">◉</span>
+        <span>NETRA<span class="brand-ai"> AI</span><small>VISION ASSISTANT</small></span>
+      </a>
+      <span class="status-pill"><span class="status-dot"></span> Browser prototype</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR WORLD, MORE ACCESSIBLE</p>
+          <h1>See beyond<br><span>what you see.</span></h1>
+          <p class="hero-text">A vision assistant prototype that can identify common objects and speak the results aloud. Start with your camera or upload a photo.</p>
+          <div class="hero-tags"><span>✦ Object detection</span><span>◖ Voice feedback</span><span>◎ Privacy-first demo</span></div>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="orbit-core">◉<small>NETRA</small></div>
+          <span class="orbit-label label-one">VISION</span><span class="orbit-label label-two">VOICE</span>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="section-heading">
+          <div><p class="eyebrow">LIVE WORKSPACE</p><h2>Vision assistant</h2></div>
+          <span id="modelStatus" class="model-status"><span class="mini-spinner"></span> Loading AI model…</span>
+        </div>
+
+        <div class="workspace-grid">
+          <article class="panel camera-panel">
+            <div class="panel-heading"><div><span class="step-number">01</span><h3>Camera & image</h3></div><span class="live-label"><i></i> LIVE VIEW</span></div>
+            <div class="preview" id="preview">
+              <video id="video" autoplay playsinline muted></video>
+              <img id="uploadedImage" alt="Uploaded image preview">
+              <canvas id="overlay"></canvas>
+              <div class="empty-state" id="emptyState">
+                <div class="camera-icon">▣</div>
+                <strong>Your view starts here</strong>
+                <p>Turn on your camera or choose a photo to identify objects.</p>
+              </div>
+              <div class="preview-badge" id="previewBadge">Waiting for input</div>
+            </div>
+            <div class="camera-actions">
+              <button class="btn btn-primary" id="cameraBtn">▣ <span>Start camera</span></button>
+              <button class="btn btn-secondary" id="uploadBtn">↑ Upload photo</button>
+              <input id="fileInput" type="file" accept="image/*" hidden>
+              <button class="btn btn-ghost" id="stopBtn" disabled>Stop</button>
+            </div>
+            <p class="helper-text">Camera access requires permission and a secure HTTPS page. Images are processed in your browser by the demo model.</p>
+          </article>
+
+          <article class="panel results-panel">
+            <div class="panel-heading"><div><span class="step-number">02</span><h3>What NETRA sees</h3></div><span class="count-badge" id="objectCount">0 objects</span></div>
+            <div class="result-area" id="resultArea" aria-live="polite">
+              <div class="result-empty"><div class="scan-icon">⌕</div><strong>Ready to explore</strong><p>Start the camera or upload an image, then select <b>Detect objects</b>.</p></div>
+            </div>
+            <button class="btn btn-primary detect-btn" id="detectBtn" disabled>✧ Detect objects</button>
+            <button class="btn btn-secondary speak-btn" id="speakBtn" disabled>🔊 Read results aloud</button>
+            <div class="voice-box">
+              <div class="voice-icon">🎙</div><div class="voice-copy"><strong>Ask NETRA</strong><p id="voiceStatus">Voice input works in supported browsers (usually Chrome).</p></div>
+              <button class="mic-btn" id="micBtn" aria-label="Start voice input" title="Start voice input">🎤</button>
+            </div>
+            <div class="question-row"><input id="questionInput" type="text" placeholder="Ask a question or type here…" aria-label="Ask NETRA a question"><button id="askBtn" class="btn btn-secondary">Ask</button></div>
+            <p class="helper-text" id="answerText">Prototype note: general questions use a demo response until an AI backend is connected.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature-row">
+        <div class="feature-card"><span>01</span><div class="feature-icon">⌖</div><h3>Object awareness</h3><p>Detect common objects such as people, chairs, bottles and more with a browser AI model.</p></div>
+        <div class="feature-card"><span>02</span><div class="feature-icon">♫</div><h3>Voice feedback</h3><p>Hear detection results through your device's built-in text-to-speech support.</p></div>
+        <div class="feature-card"><span>03</span><div class="feature-icon">◇</div><h3>Built for access</h3><p>High contrast, clear labels, keyboard-friendly controls and responsive layout.</p></div>
+      </section>
+
+      <div class="disclaimer"><span>ⓘ</span><p><b>Prototype safety note:</b> NETRA AI is a demonstration, not a certified navigation or safety device. Do not rely on its detections to cross roads or avoid hazards.</p></div>
+    </main>
+    <footer><span>◉ NETRA AI</span><span>Frontend prototype · AI runs in your browser</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

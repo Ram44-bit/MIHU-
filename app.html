@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIHU – My cases</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="side" aria-label="Main">
+      <a class="logo" href="#/">MI<span>HU</span></a>
+      <button class="nav" data-view="dashboard" type="button">Dashboard</button>
+      <button class="nav" data-view="cases" type="button">All cases</button>
+      <button class="nav" data-view="new" type="button">＋ Add new case</button>
+      <button class="nav" data-view="profile" type="button">My profile</button>
+      <a class="btn ghost sm hidden" id="admin-link" href="/admin" style="color:#dbe5f2;border-color:rgba(255,255,255,.35);margin:.3rem .2rem">Admin panel</a>
+      <div class="who">
+        <b id="who-name"></b>
+        <span id="who-email" class="muted" style="color:#9fb2c9"></span><br>
+        <button class="btn ghost sm" id="logout" type="button" style="color:#dbe5f2;border-color:rgba(255,255,255,.35)">Log out</button>
+      </div>
+    </nav>
+    <main class="main" id="view" aria-live="polite"></main>
+  </div>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

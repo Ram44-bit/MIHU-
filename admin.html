@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIHU – Admin panel</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="side" aria-label="Admin">
+      <a class="logo" href="/admin">MI<span>HU</span></a>
+      <button class="nav" data-view="overview" type="button">Overview</button>
+      <button class="nav" data-view="users" type="button">Lawyers &amp; users</button>
+      <button class="nav" data-view="cases" type="button">All cases</button>
+      <a class="btn ghost sm" href="/app" style="color:#dbe5f2;border-color:rgba(255,255,255,.35);margin:.3rem .2rem">Open lawyer app</a>
+      <div class="who">
+        <b id="who-name"></b>
+        <span id="who-email" style="color:#9fb2c9"></span><br>
+        <button class="btn ghost sm" id="logout" type="button" style="color:#dbe5f2;border-color:rgba(255,255,255,.35)">Log out</button>
+      </div>
+    </nav>
+    <main class="main" id="view" aria-live="polite"></main>
+  </div>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/admin.js"></script>
+</body>
+</html>
